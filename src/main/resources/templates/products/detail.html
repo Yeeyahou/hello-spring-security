@@ -11,6 +11,7 @@
         .navbar-brand { font-weight: 800; color: #e94560 !important; font-size: 1.4rem; }
         .detail-card { border: none; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
         .price-badge { font-size: 1.8rem; font-weight: 800; color: #e94560; }
+        .practice-footer { color: #6c757d; font-size: .875rem; text-align: center; padding: 1.5rem 0; }
     </style>
 </head>
 <body>
@@ -68,6 +69,11 @@
         </div>
     </div>
 </div>
+
+<footer class="practice-footer">
+    <p class="mb-0"
+       th:text="${'실습 수행 일시: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번: 2271187 | 성명: 변정원'}"></p>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
