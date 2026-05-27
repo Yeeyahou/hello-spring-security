@@ -35,6 +35,7 @@
                 <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link" th:href="@{/admin/dashboard}">관리자</a>
                 </li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/user/password}">비밀번호 변경</a></li>
             </ul>
             <form th:action="@{/logout}" method="post" class="d-flex">
                 <button class="btn btn-outline-light btn-sm px-3">로그아웃</button>
@@ -44,6 +45,8 @@
 </nav>
 
 <div class="container">
+    <div th:if="${successMessage}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>
+
     <!-- Welcome Card -->
     <div class="welcome-card p-4 mb-4">
         <h4 class="fw-bold mb-1">환영합니다!</h4>
@@ -63,6 +66,13 @@
                 <h6 class="fw-bold">상품 목록</h6>
                 <p class="text-muted small mb-3">등록된 상품을 조회합니다.</p>
                 <a th:href="@{/products}" class="btn btn-primary btn-sm mt-auto">바로가기</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-card p-4 h-100">
+                <h6 class="fw-bold">비밀번호 변경</h6>
+                <p class="text-muted small mb-3">현재 비밀번호 확인 후 새 비밀번호로 변경합니다.</p>
+                <a th:href="@{/user/password}" class="btn btn-outline-danger btn-sm mt-auto">바로가기</a>
             </div>
         </div>
         <div class="col-md-4" sec:authorize="hasRole('ADMIN')">
